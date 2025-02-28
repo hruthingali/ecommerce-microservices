@@ -1,0 +1,72 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      retries: 5
+      start_period: 20s
+
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: confluentinc/cp-kafka
+    container_name: kafka
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+
+  user-service:
+    build: ./user-service
+    container_name: user-service
+    depends_on:
+      - postgres
+    ports:
+      - "8081:8080"
+
+  product-service:
+    build: ./product-service
+    container_name: product-service
+    depends_on:
+      - postgres
+    ports:
+      - "8082:8080"
+      
+  payment-service:
+    build: ./payment-service
+    container_name: payment-service
+    depends_on:
+      - order-service
+      - kafka
+    ports:
+      - "8083:8080"
+
+  order-service:
+    build: ./order-service
+    container_name: order-service
+    depends_on:
+      - postgres
+      - kafka
+    ports:
+      - "8084:8080"
+

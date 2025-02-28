@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/postgres  # ✅ Change from localhost to postgres
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect  # ✅ Add this
+    hibernate:
+      ddl-auto: update
+    show-sql: true
