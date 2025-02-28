@@ -2,9 +2,10 @@ package com.example.order;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.test.context.ActiveProfiles;
 
-@SpringBootTest(classes = OrderApplication.class)
+@SpringBootTest
+@ActiveProfiles("test") // ✅ Use "application-test.yml" during tests
 class OrderApplicationTests {
 
     @Test

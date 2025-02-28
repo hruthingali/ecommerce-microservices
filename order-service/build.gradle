@@ -22,12 +22,14 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
     // ✅ Add Spring Boot Testing & JUnit 5
-    // testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 
-    testImplementation 'org.mockito:mockito-core:5.6.0'
-testImplementation 'org.springframework.boot:spring-boot-starter-test' exclude module: 'spring-boot-starter-data-jpa'
+    // testImplementation 'org.mockito:mockito-core:5.6.0'
+// testImplementation 'org.springframework.boot:spring-boot-starter-test' exclude module: 'spring-boot-starter-data-jpa'
+testImplementation 'com.h2database:h2'
+
 
 }
 
