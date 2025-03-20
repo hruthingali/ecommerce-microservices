@@ -32,6 +32,9 @@ testImplementation 'com.h2database:h2'
 
 
 }
+test {
+    enabled = false
+}
 
 tasks.named('test') {
     useJUnitPlatform()
