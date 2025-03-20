@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: payment-service
-        image: mydockerhub/payment-service:latest
+        image: kpkm25/payment-service:latest
         ports:
         - containerPort: 8083
         env:

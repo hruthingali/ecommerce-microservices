@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://postgres:5432/postgres  # ✅ Change `localhost` to `postgres`
+    url: jdbc:postgresql://postgres:5432/order_db
     username: postgres
     password: root
   jpa:

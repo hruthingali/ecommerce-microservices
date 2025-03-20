@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: user-service
-        image: mydockerhub/user-service:latest
+        image: kpkm25/user-service:latest
         ports:
         - containerPort: 8081

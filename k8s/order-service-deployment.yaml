@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: order-service
-        image: mydockerhub/order-service:latest
+        image: kpkm25/order-service 
         ports:
         - containerPort: 8084
         env:

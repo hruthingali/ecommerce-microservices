@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: product-service
-        image: mydockerhub/product-service:latest
+        image: kpkm25/product-service:latest
         ports:
         - containerPort: 8082
         env:
