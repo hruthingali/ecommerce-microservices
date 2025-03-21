@@ -5,7 +5,7 @@ FROM openjdk:21-jdk-slim
 WORKDIR /app
 
 # Copy built JAR from Gradle build
-COPY build/libs/order-service-1.0.0.jar app.jar
+COPY build/libs/order-service.jar app.jar
 
 # Expose the application port (change based on service)
 EXPOSE 8084
